@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0px; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: black; color: white;}
+
+div.container {
+    margin: 10px 20px;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+form.normal-form {
+    margin-top: 10px;
+}
+
+.controlers-container {
+    width: 100%;
+    padding: 10%;
+}
+
+.controlers-container > * {
+    width: 100%
+}
+
+.add-bottom-padding {
+    padding-bottom: 10px;
+}
+
+.button-row button {
+    margin: 10px;
+}

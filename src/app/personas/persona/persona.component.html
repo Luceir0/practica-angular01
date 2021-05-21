@@ -1,0 +1,59 @@
+<form [formGroup]="service.form" #person = "ngForm" (ngSubmit) = "onClickSubmit(person.value)" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="500px">
+        <mat-grid-tile>
+            <div class="controlers-container">
+                <input type="hidden" formControlName="$key">
+
+                <mat-form-field>
+                    <input formControlName="name" name="name" matInput placeholder="Nombre" ngModel>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="surname" name="surname" matInput placeholder="Apellido" ngModel>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="age" name="age" type="number"  matInput placeholder="Edad" min="0" ngModel>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="id" name="id" matInput placeholder="DNI" ngModel>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="favoriteColor" name="favoriteColor" matInput placeholder="Color Favorito" ngModel>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+        
+        <mat-grid-tile>            
+            <div class="controlers-container">
+                <div class="add-bottom-padding">
+                    <mat-form-field>
+                        <mat-select formControlName="gender" name="gender" placeholder="Sexo" ngModel>
+                            <mat-option>Sexo</mat-option>
+                            <ng-container *ngFor="let gen of gender">
+                                <mat-option value="{{ gen.id }}">{{ gen.value }}</mat-option>
+                            </ng-container>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <br />
+
+                    <mat-form-field>
+                        <input formControlName="birthday" name="birthday" matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" ngModel>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+
+                    <div class="button-row">
+                        <button mat-raised-button color="primary" type="submit">Guardar</button>
+                        <button mat-raised-button color="warn" (click)="onCancel()">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
